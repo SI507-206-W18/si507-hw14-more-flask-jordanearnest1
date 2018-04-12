@@ -4,8 +4,9 @@ from datetime import datetime
 
 GUESTBOOK_ENTRIES_FILE = "entries.json"
 entries = []
+id_number= 0
 
-def init(app):
+def init():
     global entries
     try:
 
@@ -24,7 +25,8 @@ def add_entry(name, text):
     global entries, GUESTBOOK_ENTRIES_FILE
     now = datetime.now()
     time_string = now.strftime("%b %d, %Y %-I:%M %p")
-    entry = {"author": name, "text": text, "timestamp": time_string}
+    entry = {"author": name, "text": text, "timestamp": time_string, "id": id_number}
+    id_number += 1
     entries.insert(0, entry) ## add to front of list
     try:
         f = open(GUESTBOOK_ENTRIES_FILE, "w")
