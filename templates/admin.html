@@ -9,9 +9,25 @@
     <div class="entry">
         <p class="entrytext"> {{e['text']}} </p>
         <p class="metadata"> by {{e['author']}} on {{e['timestamp']}} </p>
+        <p>{{e['id_number']}}</p>
+	    <form = action="/delete" method="POST">  
+	    <input type="hidden" name="aaa" value= "{{e['id_number']}}" >
+	    <input type="submit" name="bbb" value= "X" >
+	<!--     	<input type="submit" name="aaa" value= "{{e[id_number]}}" >
+	 -->
+	    </form>
     </div>
-    <form = action="/delete" method="POST">   <!-- post means send something to the server, page will reload later -->
-    	<input type="submit" name="aaa" value="X">
-    	
-    </form>
+
 {% endfor %}
+
+
+ <!-- post means send something to the server, page will reload later -->
+
+
+ <!--  two input tags, one to submit things, the other to type things .
+
+ can be an input whose type is hidden, we don't want to see the value. -->
+
+
+ <!-- go through every element and see if it's the id and then remove it. 
+ then, return something to a server -->
